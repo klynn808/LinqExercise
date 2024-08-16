@@ -71,7 +71,7 @@ namespace LinqExercise
                 .Where(e => e.FirstName.StartsWith("C") || e.FirstName.StartsWith("S")).OrderBy(e => e.FirstName);
             foreach (var employee in firstNameCSAscending)
             {
-                Console.WriteLine(employee);
+                Console.WriteLine(employee.FullName);
             }
 
             //TODO: Print all the employees' FullName and Age who are over the age 26 to the console and order this by Age first and then by FirstName in the same result.
@@ -79,7 +79,7 @@ namespace LinqExercise
                 .Where(e => e.Age > 26).OrderBy(e => e.Age).ThenBy(e => e.FirstName);
             foreach (var employee in secondSortNames)
             {
-                Console.WriteLine(employee);
+                Console.WriteLine($"Name: {employee.FullName}, Age: {employee.Age}");
             }
 
             //TODO: Print the Sum of the employees' YearsOfExperience if their YOE is less than or equal to 10 AND Age is greater than 35.
@@ -98,6 +98,11 @@ namespace LinqExercise
             var newEmployee = new Employee("Nika", "Thomson", 2, 2);
 
             var updatedEmployeeList = employees.Append(newEmployee).ToList();
+
+            foreach (var employee in updatedEmployeeList)
+            {
+                Console.WriteLine(employee.FullName);
+            }
 
             Console.WriteLine();
 
